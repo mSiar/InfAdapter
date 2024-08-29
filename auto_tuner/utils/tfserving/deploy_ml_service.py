@@ -71,16 +71,17 @@ def deploy_ml_service(
         {"name": warmup_volume_name, "empty_dir": "{}"}
     )
     
-    model_nfs_path = "/fileshare/tensorflow_resnet_b64"
-    if mount_all_models is False:
-        model_nfs_path += f"/{active_model_version}"
+    # model_nfs_path = "/fileshare/tensorflow_resnet_b64"
+    # if mount_all_models is False:
+    #     model_nfs_path += f"/{active_model_version}"
     kwargs["volumes"].append(
         {
             "name": models_volume_name, 
-            "nfs": {
-                "server": os.getenv("NFS_SERVER"),
-                "path": model_nfs_path
-            }
+            "hostPath": {"path": "/nfsbulk/hsiar/tensorflow_resnet_b64"}
+            # "nfs": {
+            #     "server": os.getenv("NFS_SERVER"),
+            #     "path": model_nfs_path
+            # }
         }
     )
     
