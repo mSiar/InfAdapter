@@ -419,7 +419,7 @@ class Adapter:
             },
             {
                 "name": models_volume_name,
-                "nfs": {"server": self.__nfs_server_ip, "path": f"/fileshare/tensorflow_resnet_b64/{model_version}"}
+                "hostPath": {"path": f"/nfsbulk/hsiar/tensorflow_resnet_b64/{model_version}"}
             },
             {
                 "name": warmup_volume_name,

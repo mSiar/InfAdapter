@@ -109,7 +109,7 @@ def create_ml_service(model_version: int, size: int, deploy_version: int = None)
         },
         {
             "name": models_volume_name,
-            "nfs": {"server": node_ip, "path": f"/fileshare/tensorflow_resnet_b64/{model_version}"}
+            "hostPath": {"path": f"/nfsbulk/hsiar/tensorflow_resnet_b64/{model_version}"}
         },
         {
             "name": warmup_volume_name,
